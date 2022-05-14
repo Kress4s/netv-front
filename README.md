@@ -1,4 +1,4 @@
-# my-vue2
+# netv
 
 ## Project setup
 ```
