@@ -4,43 +4,30 @@
       <div id="avatar">
         <img src="../assets/Company.png" alt="" />
       </div>
-      <!-- <el-form ref="form" :model="form.name" label-width="80px">
-        <el-form-item label="活动名称">
-          <el-input v-model="form.name"></el-input>
+      <el-form ref="form" :model="form.name" label-width="80px" class="login_form">
+        <el-form-item>
+          <el-input v-model="form.name" prefix-icon="el-icon-user-solid"></el-input>
         </el-form-item>
-        <el-form-item label="活动区域">
-          <el-select v-model="form.region" placeholder="请选择活动区域">
-            <el-option label="区域一" value="shanghai"></el-option>
-            <el-option label="区域二" value="beijing"></el-option>
-          </el-select>
+        <el-form-item  prop="password">
+         <el-input v-model="form.name" prefix-icon="el-icon-warning-outline" show-password></el-input>
         </el-form-item>
-      </el-form> -->
+      </el-form>
     </div>
   </div>
 </template>
 
 <script>
-//   export default {
-//     data() {
-//       return {
-//         form: {
-//           name: '',
-//           region: '',
-//           date1: '',
-//           date2: '',
-//           delivery: false,
-//           type: [],
-//           resource: '',
-//           desc: ''
-//         }
-//       }
-//     },
-//     methods: {
-//       onSubmit() {
-//         console.log('submit!');
-//       }
-//     }
-//   }
+  export default {
+    data() {
+      return {
+        form: {
+          name: ''
+        }
+      }
+    },
+    methods: {
+    }
+  }
 </script>
 
 
@@ -53,13 +40,14 @@
 .loginBox {
   background-color: #fff;
   border-radius: 3px;
-  width: 400px;
-  height: 450px;
+  width: 466px;
+  height: 286px;
   position: absolute;
   border: 0 solid 1em;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  border-radius: 20px;
 }
 
 #avatar {
@@ -78,4 +66,17 @@
   border-radius: 50%;
   box-shadow: 1px 1px 10px #eee;
 }
+
+.login_form {
+  position: relative;
+  right: 31px;
+  top: -13px;
+  width: 100%;
+}
+.el-form-item {
+  padding: 0px;
+  float: left;
+  width: 100%;
+}
+
 </style>
