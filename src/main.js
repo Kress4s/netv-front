@@ -11,6 +11,7 @@ axios.defaults.baseURL = "http://"
 
 
 
+
 Vue.use(VueAxios, axios)
 // 全局挂载
 Vue.prototype.$http = axios
