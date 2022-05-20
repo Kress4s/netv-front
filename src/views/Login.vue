@@ -4,12 +4,27 @@
       <div id="avatar">
         <img src="../assets/Company.png" alt="" />
       </div>
-      <el-form ref="form" :model="form.name" label-width="80px" class="login_form">
+      <el-form
+        ref="form"
+        :model="form.name"
+        label-width="80px"
+        class="login_form">
         <el-form-item>
-          <el-input v-model="form.name" prefix-icon="el-icon-user-solid"></el-input>
+          <el-input
+            v-model="form.name"
+            prefix-icon="el-icon-user-solid"
+          ></el-input>
         </el-form-item>
-        <el-form-item  prop="password">
-         <el-input v-model="form.name" prefix-icon="el-icon-warning-outline" show-password></el-input>
+        <el-form-item prop="password">
+          <el-input
+            v-model="form.name"
+            prefix-icon="el-icon-warning-outline"
+            show-password
+          ></el-input>
+        </el-form-item>
+        <el-form-item class="btns">
+          <el-button type="primary" @click="login">登录</el-button>
+          <el-button type="info">注册</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -17,17 +32,21 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        form: {
-          name: ''
-        }
+export default {
+  data() {
+    return {
+      form: {
+        name: "admin",
+        password: "123456"
       }
-    },
-    methods: {
-    }
-  }
+    };
+  },
+  methods: {
+    login(){
+      console.log(this.form.name)
+    } 
+  },
+};
 </script>
 
 
@@ -73,10 +92,15 @@
   top: -13px;
   width: 100%;
 }
-.el-form-item {
-  padding: 0px;
-  float: left;
-  width: 100%;
-}
 
+.btns {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  right: 17px;
+} 
+
+.el-button {
+  margin: 0px 5px;
+}
 </style>
