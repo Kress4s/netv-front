@@ -17,7 +17,7 @@
         </el-form-item>
         <el-form-item prop="password">
           <el-input
-            v-model="form.name"
+            v-model="form.password"
             prefix-icon="el-icon-warning-outline"
             show-password
           ></el-input>
@@ -36,14 +36,19 @@ export default {
   data() {
     return {
       form: {
-        name: "admin",
-        password: "123456"
+        name: "",
+        password: ""
       }
     };
   },
   methods: {
     login(){
-      console.log(this.form.name)
+      this.$http.post("/auth/login", {'user_name': this.form.name, 'password':this.form.password})
+      .then(function(response){
+        console.log(response)
+      }).catch(function(error){
+        console.log(error)
+      })
     } 
   },
 };

@@ -5,12 +5,10 @@ import '../src/assets/global.css'
 import './plugins/element.js'
 import 'element-ui/lib/theme-chalk/index.css'
 import axios from 'axios'
-// import VueAxios from 'vue-axios'
 
-axios.defaults.baseURL = "http://"
+axios.defaults.baseURL = "http://121.41.38.13:9090"
 
 
-Vue.use(VueAxios, axios)
 // 全局挂载
 Vue.prototype.$http = axios
 
