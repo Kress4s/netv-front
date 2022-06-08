@@ -36,20 +36,35 @@ export default {
   data() {
     return {
       form: {
-        name: "",
-        password: ""
+        name: "admin",
+        password: "123456"
       }
     };
   },
   methods: {
     login(){
       this.$http.post("/auth/login", {'user_name': this.form.name, 'password':this.form.password})
-      .then(function(response){
-        console.log(response)
-      }).catch(function(error){
-        console.log(error)
+      .then((response) => {
+        if (response.status === 200) {
+          // 把token保存到seesionStorage(默认有效时间)
+          window.sessionStorage.setItem('token', response.data.access_token)
+          this.$message({
+            message: '登陆成功',
+            type: 'success'
+          })
+          this.$router.push('/home')
+        }
+      }).catch((error) => {
+        if (error.response.status === 400){
+          return this.$message({
+            message: '用户名密码错误',
+            type: 'warning'
+          })
+        }else {
+          return this.$message.error("服务端错误")
+        }
       })
-    } 
+    }
   },
 };
 </script>
