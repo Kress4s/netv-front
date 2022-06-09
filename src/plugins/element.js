@@ -15,6 +15,9 @@ import {
     Submenu,
     MenuItem,
     MenuItemGroup,
+    Dropdown,
+    DropdownMenu,
+    DropdownItem,
 } from "element-ui"
 
 Vue.use(Form)
@@ -29,6 +32,9 @@ Vue.use(Menu)
 Vue.use(Submenu)
 Vue.use(MenuItem)
 Vue.use(MenuItemGroup)
+Vue.use(Dropdown)
+Vue.use(DropdownMenu)
+Vue.use(DropdownItem)
 
 Vue.prototype.$message = Message
 

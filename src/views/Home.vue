@@ -2,12 +2,19 @@
   <el-container>
     <el-aside width="230px">
       <div>
+        <div class="brandP">
+          <div class="brand">
+            <span>NETV</span>
+          </div>
+          <div>
+            <span>奈特鱼网络平台</span>
+          </div>
+        </div>
         <el-menu
           class="el-menu-vertical-demo"
           background-color="#25304c"
           active-text-color="#1d2842"
           unique-opened
-          :collapse="isCollapse"
           :collapse-transition="false"
         >
           <el-submenu :index="item.id" v-for="item in menuList" :key="item.id">
@@ -20,7 +27,7 @@
             <el-menu-item-group v-if="item.child">
               <el-menu-item v-for="ii in item.child" :key="ii.id"
                 ><i class="el-icon-menu"></i
-                ><span style="color:white">{{ ii.name }}</span></el-menu-item
+                ><span style="color: white">{{ ii.name }}</span></el-menu-item
               >
             </el-menu-item-group>
           </el-submenu>
@@ -28,7 +35,20 @@
       </div>
     </el-aside>
     <el-container>
-      <el-header>Header</el-header>
+      <el-header>
+        <div class="user">
+          <img src="../assets/logo.png" alt="" />
+          <el-dropdown>
+            <span class="el-dropdown-link">
+              张三<i class="el-icon-arrow-down el-icon--right"></i>
+            </span>
+            <el-dropdown-menu slot="dropdown">
+              <el-dropdown-item>用户中心</el-dropdown-item>
+              <el-dropdown-item>修改密码</el-dropdown-item>
+            </el-dropdown-menu>
+          </el-dropdown>
+        </div>
+      </el-header>
       <el-main><router-view></router-view></el-main>
     </el-container>
   </el-container>
@@ -72,11 +92,8 @@ export default {
 .el-header {
   margin: 17px;
   border-radius: 10px;
-  background-color: #b3c0d1;
+  background-color: #fff;
   color: #333;
-  text-align: center;
-  line-height: 60px;
-  height: 500px;
 }
 
 .el-aside {
@@ -87,5 +104,54 @@ export default {
 
 .el-main {
   background-color: #e9eef3;
+}
+
+.el-submenu {
+  position: relative;
+  left: 10px;
+}
+
+.brand {
+  margin-top: 26px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  color: #9be6ff;
+  font-size: 40px;
+  cursor: pointer;
+}
+.brand + div {
+  font-size: 14px;
+  color: #adbae2;
+  line-height: 14px;
+  text-align: center;
+}
+
+.brandP {
+  margin-bottom: 75px;
+  position: relative;
+  right: 28px;
+}
+
+.user {
+  float: right;
+  height: 60px;
+}
+
+.user > img {
+  height: 40px;
+  width: 40px;
+  border: blue solid 1px;
+  border-radius: 100%;
+  position: relative;
+  top: 9px;
+  right: 16px;
+}
+
+.el-dropdown {
+  /* line-height: 60px; */
+  position: relative;
+  bottom: 6px;
+  cursor: pointer;
 }
 </style>
