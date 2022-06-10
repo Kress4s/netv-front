@@ -11,24 +11,34 @@
           </div>
         </div>
         <el-menu
+          default-active="3"
           class="el-menu-vertical-demo"
+          @open="handleOpen"
+          @close="handleClose"
           background-color="#25304c"
-          active-text-color="#1d2842"
+          text-color="#fff"
+          active-text-color="rgb(155, 230, 255)"
+          :collapse="isCollapse"
           unique-opened
-          :collapse-transition="false"
+          :router="true"
         >
-          <el-submenu :index="item.id" v-for="item in menuList" :key="item.id">
-            <template slot="title"
-              ><i :class="menuLogo[item.id]"></i
-              ><span style="color: white; text-align: left">{{
-                item.name
-              }}</span></template
+        <!-- 在:router="true" 启动vue-router模式时,index为vue的路由 -->
+          <el-menu-item :index="'/home' + item.path" v-for="item in noChild" :key="item.id">
+            <i :class="menuLogo[item.id]"></i>
+            <span slot="title">{{ item.name }}</span>
+          </el-menu-item>
+          <el-submenu :index="item.id" v-for="item in hasChild" :key="item.id">
+            <template slot="title">
+              <i :class="menuLogo[item.id]"></i>
+              <span>{{ item.name }}</span>
+            </template>
+            <el-menu-item-group
+              v-for="subItem in item.child"
+              :key="subItem.id"
             >
-            <el-menu-item-group v-if="item.child">
-              <el-menu-item v-for="ii in item.child" :key="ii.id"
-                ><i class="el-icon-menu"></i
-                ><span style="color: white">{{ ii.name }}</span></el-menu-item
-              >
+              <el-menu-item :index="'/home' + subItem.path">{{
+                subItem.name
+              }}</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
         </el-menu>
@@ -58,28 +68,38 @@
 export default {
   data() {
     return {
+      isCollapse: false,
       menuList: [
-        { id: 1, name: "首页" },
-        { id: 2, name: "白名单" },
+        { id: 1, name: "首页", path:"/welcome"},
+        { id: 2, name: "白名单", path:"/whileList"},
         {
           id: 3,
           name: "数据分析",
+          path:"/dataAnalysis",
           child: [
-            { id: 30, name: "用户分析" },
-            { id: 31, name: "访问分析" },
+            { id: 30, name: "用户分析", path:"/dataAnalysis/user"},
+            { id: 31, name: "访问分析", path:"/dataAnalysis/visit"},
           ],
         },
-        { id: 4, name: "JS分析" },
-        { id: 5, name: "关于我们" },
+        { id: 4, name: "JS分析", path:"/jsAnalysis"},
+        { id: 5, name: "关于我们", path:"/us" },
       ],
       menuLogo: {
-        1: "el-icon-user",
-        2: "el-icon-lock",
-        3: "el-icon-goods",
-        4: "el-icon-notebook-2",
-        5: "el-icon-data-line",
+        1: "el-icon-s-home",
+        2: "el-icon-s-custom",
+        3: "el-icon-s-marketing",
+        4: "el-icon-s-data",
+        5: "el-icon-s-flag",
       },
     };
+  },
+  computed: {
+    noChild() {
+      return this.menuList.filter((item) => !item.child);
+    },
+    hasChild() {
+      return this.menuList.filter((item) => item.child);
+    },
   },
 };
 </script>
@@ -110,6 +130,13 @@ export default {
   position: relative;
   left: 10px;
 }
+
+.el-menu-item{
+  position: relative;
+  left: 10px;
+}
+
+
 
 .brand {
   margin-top: 26px;
