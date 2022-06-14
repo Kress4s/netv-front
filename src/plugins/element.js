@@ -21,7 +21,8 @@ import {
     Table,
     TableColumn,
     Option,
-    Select
+    Select,
+    Pagination
 
 } from "element-ui"
 
@@ -44,6 +45,7 @@ Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Option)
 Vue.use(Select)
+Vue.use(Pagination)
 
 Vue.prototype.$message = Message
 

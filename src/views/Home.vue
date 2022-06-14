@@ -13,8 +13,6 @@
         <el-menu
           default-active="/home/welcome"
           class="el-menu-vertical-demo"
-          @open="handleOpen"
-          @close="handleClose"
           background-color="#25304c"
           text-color="#fff"
           active-text-color="rgb(155, 230, 255)"
