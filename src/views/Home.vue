@@ -11,7 +11,7 @@
           </div>
         </div>
         <el-menu
-          default-active="3"
+          default-active="/home/welcome"
           class="el-menu-vertical-demo"
           @open="handleOpen"
           @close="handleClose"
@@ -110,7 +110,7 @@ export default {
   height: 100%;
 }
 .el-header {
-  margin: 17px;
+  margin: 17px 17px 17px 5px;
   border-radius: 10px;
   background-color: #fff;
   color: #333;
@@ -123,7 +123,9 @@ export default {
 }
 
 .el-main {
-  background-color: #e9eef3;
+  background-color: #fff;
+  border-radius: 10px;
+  margin: 0 17px 17px 5px;
 }
 
 .el-submenu {

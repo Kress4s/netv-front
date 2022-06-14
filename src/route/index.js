@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Login from "../views/Login.vue";
 import Home from "../views/Home.vue";
 import Welcome from "../views/Welcome.vue";
+import whileList from "../views/witheList/white.vue"
 
 Vue.use(VueRouter)
 
@@ -16,6 +17,8 @@ const routes = [
         children: [
             // 首页
             { path: 'welcome', component: Welcome },
+            // 白名单
+            { path: 'whileList', component: whileList },
         ]
     }
 ]

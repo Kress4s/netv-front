@@ -18,6 +18,11 @@ import {
     Dropdown,
     DropdownMenu,
     DropdownItem,
+    Table,
+    TableColumn,
+    Option,
+    Select
+
 } from "element-ui"
 
 Vue.use(Form)
@@ -35,6 +40,10 @@ Vue.use(MenuItemGroup)
 Vue.use(Dropdown)
 Vue.use(DropdownMenu)
 Vue.use(DropdownItem)
+Vue.use(Table)
+Vue.use(TableColumn)
+Vue.use(Option)
+Vue.use(Select)
 
 Vue.prototype.$message = Message
 
