@@ -22,7 +22,8 @@ import {
     TableColumn,
     Option,
     Select,
-    Pagination
+    Pagination,
+    Dialog
 
 } from "element-ui"
 
@@ -46,6 +47,7 @@ Vue.use(TableColumn)
 Vue.use(Option)
 Vue.use(Select)
 Vue.use(Pagination)
+Vue.use(Dialog)
 
 Vue.prototype.$message = Message
 
