@@ -23,7 +23,8 @@ import {
     Option,
     Select,
     Pagination,
-    Dialog
+    Dialog,
+    Notification
 
 } from "element-ui"
 
@@ -52,3 +53,5 @@ Vue.use(Dialog)
 Vue.prototype.$message = Message
 
 Vue.prototype.$confirm = MessageBox.confirm
+
+Vue.prototype.$notify = Notification;
